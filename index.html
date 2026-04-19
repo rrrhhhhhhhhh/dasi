@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Detroit Architecture Summer Institute (DASI)</title>
+  <meta
+    name="description"
+    content="Detroit Architecture Summer Institute (DASI), June 25–28, 2026, hosted by Wayne State University, Detroit."
+  />
 
   <style>
     @font-face {
@@ -40,12 +44,12 @@
 
     :root {
       --bg: #000000;
-      --panel: #0b0b0b;
+      --panel: #0a0a0a;
       --text: #f5f1e8;
       --muted: #b8b1a3;
-      --line: #2a2a2a;
+      --line: #262626;
       --accent: #f6d80f;
-      --accent-dark: #e0c300;
+      --max: 1080px;
     }
 
     * {
@@ -61,20 +65,25 @@
       font-family: "Messina Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
+      height: auto;
     }
 
     a {
-      color: var(--text);
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
     }
 
     .wrap {
-      width: min(92%, 1080px);
+      width: min(92%, var(--max));
       margin: 0 auto;
     }
 
@@ -87,134 +96,123 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 48px 0 64px;
+      padding: 40px 0 56px;
+      border-bottom: 1px solid var(--accent);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
       gap: 56px;
       align-items: end;
     }
 
     .logo-block {
-      margin-bottom: 32px;
-      max-width: 780px;
-    }
-
-    .logo-block img {
-      width: 100%;
-      height: auto;
+      max-width: 920px;
+      margin-bottom: 28px;
     }
 
     .meta {
       font-size: 1rem;
+      line-height: 1.45;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .hero p {
-      max-width: 42rem;
-      font-size: 1.06rem;
-      margin: 0 0 28px 0;
+    .hero-copy {
+      max-width: 44rem;
+      font-size: 1.08rem;
+      margin: 0 0 22px 0;
+    }
+
+    .hero-sub {
+      max-width: 22rem;
+      margin: 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--accent);
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.5;
     }
 
     .hero-side {
       display: flex;
       justify-content: flex-end;
-      align-items: flex-end;
+      align-items: end;
       min-height: 100%;
     }
 
-    .hero-note {
-      width: 100%;
-      max-width: 300px;
-      border-top: 1px solid var(--accent);
-      padding-top: 14px;
+    .hero-side-note {
+      max-width: 280px;
       color: var(--muted);
       font-size: 0.95rem;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button {
-      padding: 14px 20px;
-      border: 1px solid var(--text);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 0.15s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .button-primary {
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-    }
-
-    .button-primary:hover {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
+      line-height: 1.5;
     }
 
     .section-title {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--muted);
-      margin-bottom: 20px;
       font-weight: 700;
+      margin: 0 0 22px 0;
     }
 
     .section p {
       max-width: 44rem;
       font-size: 1.08rem;
-      margin-top: 0;
+      margin: 0 0 18px 0;
     }
 
     .details {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px 28px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px 32px;
       max-width: 44rem;
     }
 
     .detail {
       border-top: 1px solid var(--line);
       padding-top: 10px;
-      font-size: 1.02rem;
+      min-height: 78px;
     }
 
     .detail-label {
       display: block;
+      margin-bottom: 8px;
       font-size: 0.78rem;
+      line-height: 1.2;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--muted);
       font-weight: 700;
-      margin-bottom: 8px;
     }
 
-    .apply-box {
-      border: 1px solid var(--accent);
-      padding: 24px;
+    .detail-value {
+      font-size: 1.03rem;
+      line-height: 1.45;
+    }
+
+    .simple-block p:last-child,
+    .contact-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .name-line {
+      font-size: 1.08rem;
+      margin: 0 0 10px 0;
+    }
+
+    .contact-box {
       max-width: 44rem;
+      padding: 24px;
+      border: 1px solid var(--accent);
       background: var(--panel);
     }
 
-    .apply-box p {
-      margin-top: 0;
-    }
-
     .footer {
-      padding: 24px 0 40px;
+      padding: 22px 0 36px;
       color: var(--muted);
       font-size: 0.92rem;
     }
@@ -224,117 +222,133 @@
     }
 
     @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        padding-top: 32px;
+      }
+
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 28px;
       }
 
       .hero-side {
         justify-content: flex-start;
       }
 
-      .logo-block {
-        max-width: 100%;
+      .hero-side-note {
+        max-width: 22rem;
       }
 
       .details {
         grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(90%, var(--max));
+      }
+
+      .hero-copy,
+      .section p,
+      .name-line,
+      .detail-value {
+        font-size: 1rem;
+      }
+
+      .meta,
+      .hero-sub,
+      .hero-side-note {
+        font-size: 0.94rem;
+      }
+
+      .contact-box {
+        padding: 18px;
       }
     }
   </style>
 </head>
-
 <body>
 
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
         <div class="logo-block">
-          <img src="resources/images/dasi-logo.png" alt="DASI logo">
+          <img src="resources/images/dasi-logo.png" alt="Detroit Architecture Summer Institute logo" />
         </div>
 
         <div class="meta">
-          June 25–28, 2026<br>
-          Hosted by Wayne State University, Detroit, Michigan
+          June 25–28, 2026<br />
+          Wayne State University, Detroit
         </div>
 
-        <p>
-          A new annual, four-day program bringing together a small, selective cohort
-          of students, researchers, and practitioners to engage the intersections of
-          automotive systems, labor histories, and creative infrastructures in Detroit.
+        <p class="hero-copy">
+          A new annual, four-day program bringing together a small, selective cohort of students, researchers, and practitioners to engage the intersections of automotive systems, labor histories, and creative infrastructures in Detroit.
         </p>
 
-        <div class="buttons">
-          <a href="#apply" class="button button-primary">Apply / Express Interest</a>
-          <a href="mailto:you@example.com" class="button">Contact</a>
-        </div>
+        <p class="hero-sub">
+          Inaugural session.<br />
+          Seminars, site visits, and archival work.
+        </p>
       </div>
 
       <div class="hero-side">
-        <div class="hero-note">
-          Inaugural session.<br>
-          Seminars, site visits, and archival work.
+        <div class="hero-side-note">
+          Detroit Architecture Summer Institute
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="wrap">
-      <div class="section-title">About</div>
+    <div class="wrap section">
+      <h2 class="section-title">About</h2>
 
-      <p>
-        The Detroit Architecture Summer Institute (DASI) is a new annual, four-day program
-        bringing together a small, selective cohort of students, researchers, and practitioners.
-      </p>
+      <div class="simple-block">
+        <p>
+          The Detroit Architecture Summer Institute (DASI) is a new annual, four-day program bringing together a small, selective cohort of students, researchers, and practitioners.
+        </p>
 
-      <p>
-        Structured as an intensive program of seminars, site visits, and archival work,
-        the institute uses Detroit as both subject and site—foregrounding the material
-        and social conditions that shape the built environment.
-      </p>
+        <p>
+          Structured as an intensive program of seminars, site visits, and archival work, the institute uses Detroit as both subject and site—foregrounding the material and social conditions that shape the built environment.
+        </p>
 
-      <p>
-        Participants will work directly with one of the most significant labor archive
-        collections in the United States, offering close engagement with primary materials
-        that document the histories and ongoing transformations of work, industry, and culture.
-      </p>
+        <p>
+          Participants will work directly with one of the most significant labor archive collections in the United States, offering close engagement with primary materials that document the histories and ongoing transformations of work, industry, and culture.
+        </p>
+      </div>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <div class="section-title">Program Details</div>
+      <h2 class="section-title">Program Details</h2>
 
       <div class="details">
         <div class="detail">
           <span class="detail-label">Dates</span>
-          June 25–28, 2026
+          <div class="detail-value">June 25–28, 2026</div>
         </div>
 
         <div class="detail">
           <span class="detail-label">Location</span>
-          Detroit, Michigan
+          <div class="detail-value">Detroit, Michigan</div>
         </div>
 
         <div class="detail">
           <span class="detail-label">Host</span>
-          Wayne State University
+          <div class="detail-value">Wayne State University</div>
         </div>
 
         <div class="detail">
           <span class="detail-label">Format</span>
-          Seminars, site visits, archival work
-        </div>
-
-        <div class="detail">
-          <span class="detail-label">Archive Access</span>
-          Direct engagement with major labor archive collections
-        </div>
-
-        <div class="detail">
-          <span class="detail-label">Cohort</span>
-          Small, selective group
+          <div class="detail-value">Seminars, site visits, and archival work</div>
         </div>
       </div>
     </div>
@@ -342,34 +356,36 @@
 
   <section>
     <div class="wrap">
-      <div class="section-title">2026 Artist/Scholar-in-Residence</div>
-      <p><em>Lauren Weinstein</em></p>
+      <h2 class="section-title">2026 Artist/Scholar-in-Residence</h2>
+
+      <div class="simple-block">
+        <p class="name-line"><em>Lauren Weinstein</em></p>
+      </div>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <div class="section-title">Co-Founders</div>
-      <p>Laura Foxman and Gretchen Wilkins</p>
+      <h2 class="section-title">Co-Founders</h2>
+
+      <div class="simple-block">
+        <p class="name-line">Laura Foxman</p>
+        <p class="name-line">Gretchen Wilkins</p>
+      </div>
     </div>
   </section>
 
-  <section id="apply">
+  <section>
     <div class="wrap">
-      <div class="section-title">Apply / Express Interest</div>
+      <h2 class="section-title">Contact</h2>
 
-      <div class="apply-box">
+      <div class="contact-box contact-block">
         <p>
-          For inquiries or to express interest in participating, please contact:
+          For inquiries and expressions of interest:
         </p>
 
         <p>
           <a href="mailto:you@example.com">you@example.com</a>
-        </p>
-
-        <p>
-          Or use the application / interest form:
-          <a href="https://your-form-link.com" target="_blank" rel="noopener noreferrer">Application Form</a>
         </p>
       </div>
     </div>
